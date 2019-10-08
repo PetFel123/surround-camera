@@ -15,9 +15,9 @@ def warpImage(frame, frac, addr, addc, rot):
     h, _ = cv2.findHomography(src, dst)
 
     if rot:
-        return cv2.warpPerspective(frame, h, (1253, 940))
+        return cv2.warpPerspective(frame, h, (1810, 940))
     else:
-        return cv2.warpPerspective(frame, h, (940, 1253))
+        return cv2.warpPerspective(frame, h, (940, 1810))
 
 
 cv2.namedWindow("preview")
@@ -31,7 +31,7 @@ else:
     rval = False
 
 out = warpImage(frame, 0.4, 300, 300, False)
-out1 = cv2.rotate(warpImage(frame1, 0.4, -120, 613, True), cv2.ROTATE_90_CLOCKWISE)
+out1 = cv2.rotate(warpImage(frame, 0.4308, -104, 1170, True), cv2.ROTATE_90_CLOCKWISE)
 
 while rval:
     cv2.imshow("preview", out1 + out)
@@ -40,7 +40,7 @@ while rval:
     rval1, frame1 = vc1.read()
 
     out = warpImage(frame, 0.4, 300, 300, False)
-    out1 = cv2.rotate(warpImage(frame1, 0.45, -120, 613, True), cv2.ROTATE_90_CLOCKWISE)
+    out1 = cv2.rotate(warpImage(frame, 0.4308, -104, 1170, True), cv2.ROTATE_90_CLOCKWISE)
 
     key = cv2.waitKey(20)
     if key == 27:
